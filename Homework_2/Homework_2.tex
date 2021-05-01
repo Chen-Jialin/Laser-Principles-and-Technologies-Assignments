@@ -1,0 +1,109 @@
+% !TEX program = pdflatex
+% Laser Principles & Technologies Homework_2
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1553 \\ Laser Principles \& Technologies \\ Semester Fall 2019 \\ Assignment 2}
+\begin{document}
+\begin{problem}{2.1}
+利用下列数据，估算红宝石的光增益系数。
+\begin{gather*}
+n_2-n_1=5\times10^{18}\text{cm}^{-3},1/f(\nu)=2\times10^{11}\text{s}^{-1},t_{\text{自发}}=A_{21}^{-1}\approx3\times10^{-3}s,\lambda=0.6943\mu\text{m},\\
+\mu=1.5,g_1=g_2
+\end{gather*}
+\end{problem}
+\begin{sol}
+增益系数
+\begin{equation}
+\label{gain}
+G(\nu)=\Delta nB_{21}\frac{\mu}{c}h\nu f(\nu)
+\end{equation}
+其中反转粒子数密度
+\begin{equation}
+\Delta n=n_2-n_1
+\end{equation}
+从能级$E_2$到能级$E_1$的爱因斯坦受激辐射系数
+\begin{equation}
+B_{21}=\frac{c^3}{8\pi\mu^3h\nu^3}A_{21}
+\end{equation}
+激光频率
+\begin{equation}
+\nu=\frac{c}{\lambda}
+\end{equation}
+以上三式代入式(\ref{gain})中得增益系数
+\begin{align}
+\nonumber G=&(n_2-n_1)\frac{\lambda^2}{8\pi\mu^2}A_{21}f(\nu)\\
+\nonumber=&5\times10^{18}\times10^{-6}\times\frac{(0.6943\times10^{-6})^2}{8\pi(1.5)^2}\times(3\times10^{-3})^{-1}\times(2\times10^{11})^{-1}\text{m}^{-1}\\
+\approx&71.04\text{m}^{-1}
+\end{align}
+\end{sol}
+
+\begin{problem}{2.4}
+稳定谐振腔的两块反射镜，其曲率半径分别为$R_1=40$cm，$R_2=100$cm，求腔长$L$的取值范围。
+\end{problem}
+\begin{sol}
+谐振腔的稳定性条件
+\begin{gather}
+0<\left(1-\frac{L}{R_1}\right)\left(1-\frac{L}{R_2}\right)=\left(1-\frac{L}{40\text{cm}}\right)\left(1-\frac{L}{100\text{cm}}\right)=<1\\
+\Longrightarrow0<L<40\text{cm 或 }100\text{cm}<L<140\text{cm}
+\end{gather}
+故腔长$L$的取值范围为$0<L<40\text{cm或}100\text{cm}<L<140\text{cm}$。
+\end{sol}
+
+\begin{problem}{2.8}
+研究激光介质增益时，常用到“受激发射截面”$\sigma_e(\nu)(\text{cm}^2)$概念，它与增益系数$G(\nu)(\text{cm}^{-1})$的关系是：$\sigma_e(\nu)=\frac{G(\nu)}{\Delta n}$，$n$为反转粒子数密度。试证明：具有上能级寿命为$\tau$，线性函数为$f(\nu)$的介质的受激发射截面为$\sigma_e(\nu)=\frac{c^2f(\nu)}{8\pi\nu^2\mu^2\tau}$。
+\end{problem}
+\begin{sol}
+增益系数
+\begin{equation}
+G(\nu)=\Delta nB_{21}\frac{\mu}{c}h\nu f(\nu)
+\end{equation}
+其中从能级$E_2$到能级$E_1$的爱因斯坦受激辐射系数
+\begin{equation}
+B_{21}=\frac{c^3}{8\pi\mu^3h\nu^3}A_{21}=\frac{c^3}{8\pi\mu^3h\nu^3\tau}
+\end{equation}
+以上二式代入受激发射截面定义式中得
+\begin{equation}
+\sigma_e(\nu)=\frac{G(\nu)}{\Delta n}=\frac{c^2f(\nu)}{8\pi\nu^2\mu^2\tau}
+\end{equation}
+\end{sol}
+
+\begin{problem}{2.11}
+求$He-Ne$激光的阈值反转粒子数密度。已知$\lambda=0.6328\mu\text{m},1/f(\nu)\approx\Delta\nu=10^9\text{Hz},\mu=1$，设总损耗率为$a_{\text{总}}$，相当于每一反射镜的等效反射率$R=1-La_{\text{总}}=98.33\%,\tau=10^{-7}s$，腔长$L=0.1m$。
+\end{problem}
+\begin{sol}
+阈值反转粒子数密度
+\begin{equation}
+\label{n_yu}
+\Delta n_{\text{阈}}=\frac{8\pi\nu^2\mu^2\tau a_{\text{总}}}{c^2f(\nu)}
+\end{equation}
+其中激光频率
+\begin{equation}
+\nu=\frac{c}{\lambda}
+\end{equation}
+总损耗率
+\begin{equation}
+a_{\text{总}}=\frac{1-R}{L}
+\end{equation}
+以上两式代入式(\ref{n_yu})中得阈值反转粒子数密度
+\begin{align}
+\nonumber\Delta n_{\text{阈}}=&\frac{8\pi\mu^2\tau(1-R)}{\lambda^2f(\nu)L}\\
+\nonumber=&\frac{8\pi\times1^2\times10^{-7}\times(1-98.33\%)\times10^9}{(0.6328\times10^{-6})^2\times0.1}\text{m}^{-3}\\
+=&1.048\times10^{15}\text{m}^{-3}
+\end{align}
+\end{sol}
+\end{document}

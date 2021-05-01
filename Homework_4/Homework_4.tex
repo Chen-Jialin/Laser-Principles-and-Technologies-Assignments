@@ -1,0 +1,70 @@
+% !TEX program = pdflatex
+% Laser Principles & Technologies Homework_4
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts,enumitem,fancyhdr,color,comment,graphicx,environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solution:}
+    }
+    {
+    \qed
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}}
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+\usepackage[UTF8]{ctex}
+\lhead{Name: 陈稼霖\\ StudentID: 45875852}
+\rhead{PHYS1553 \\ Laser Principles \& Technologies \\ Semester Fall 2019 \\ Assignment 4}
+\begin{document}
+\begin{problem}{4.1}
+腔长$30$cm的氦氖激光器荧光线宽为$1500$MHz，可能出现三个纵模。用三反射镜法选取单纵模。求短耦合腔腔长$(L_2+L_3)$。
+\end{problem}
+\begin{sol}
+短耦合共焦腔的纵模频率间隔为
+\begin{equation}
+\Delta\nu_{\text{短}}=\frac{c}{2\mu(L_2+L_3)}
+\end{equation}
+要选取单纵模，则
+\begin{equation}
+2\Delta\nu_{\text{短}}=2\times\frac{3\times10^8}{2\times1\times(L_2+L_3)}Hz>1500\times10^6Hz
+\end{equation}
+解得短耦合共焦腔腔长
+\begin{equation}
+(L_2+L_3)<0.2m
+\end{equation}
+\end{sol}
+
+\begin{problem}{4.2}
+He-Ne激光器辐射$632.8$nm光波，其方形镜对称共焦腔腔长$L=0.2$m，腔内同时存在TEM$_{00}$、TEM$_{11}$、TEM$_{22}$横模。若在腔内接近镜面处加小孔光阑选取横模，试问
+\begin{itemize}
+\item[(1)] 如只使TEM$_{00}$模振荡，光阑孔径应多大？
+\item[(2)] 如同时使TEM$_{00}$、TEM$_{11}$模振荡而抑制TEM$_{22}$模振荡，光阑孔径应多大？
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item[(1)] 如只使TEM$_{00}$模振荡，则光阑孔径应当选取为接近镜面处的基横模光束有效截面半径
+\begin{align}
+\nonumber w(L/2)=&\sqrt{\frac{\lambda L}{2\pi}\left[1+\left(\frac{2(L/2)}{L}\right)^2\right]}=\sqrt{\frac{\lambda L}{\pi}}=\sqrt{\frac{632.8\times10^{-9}\times0.2}{\pi}}m\\
+=&2\times10^{-4}m=0.2mm
+\end{align}
+\item[(2)] 如同时使TEM$_{00}$、TEM$_{11}$模振荡而抑制TEM$_{22}$模振荡，光阑孔径应当选取为接近镜面处的TEM$_{11}$模光束有效截面半径，它是当地基横模光束有效截面半径的$\sqrt{2\times1+1}$倍
+\begin{equation}
+w_{11}(L/2)=\sqrt{3}w(L/2)=0.35mm
+\end{equation}
+\end{itemize}
+\end{sol}
+
+\begin{problem}{4.5}
+用如图4-33所示的倒置望远镜系统改善由对称共焦腔输出的光束方向性。已知两个透镜的焦距分别为$f_1=2.5$cm，$f_2=20$cm，$\lambda=0.6328\mu$m，$w_0=0.28$mm，$l_1\gg f_1$（$L_1$紧靠腔的输出镜面）。求该望远镜系统光束发散角的压缩比。
+\end{problem}
+\begin{sol}
+当高斯光从共焦腔的平面镜输出而第一个短焦距透镜紧贴平面镜放置时，入射光束在透镜1处的光斑半径为入射光束束腰半径的$\sqrt{2}$倍，$w=\sqrt{2}w_0$，此时该望远镜系统光束发散角的压缩比为
+\begin{equation}
+M'=\frac{f_2}{f_1}\frac{w}{w_0}=\frac{20}{2.5}\sqrt{2}=11.3
+\end{equation}
+\end{sol}
+\end{document}
